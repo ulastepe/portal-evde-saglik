@@ -34,6 +34,12 @@ function Icon({ type, className = "" }) {
         <path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
+    whatsapp: (
+      <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5.4 18.7 4 22l3.5-1.3A9 9 0 1 0 3 13a8.9 8.9 0 0 0 2.4 5.7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8.8 8.6c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4l.8 1.8c.1.3.1.5-.1.7l-.4.5c-.1.1-.2.3-.1.5.4.8 1 1.5 1.7 2 .8.6 1.5.8 1.8.9.2.1.4 0 .5-.1l.7-.8c.2-.2.4-.2.7-.1l1.7.8c.3.1.5.3.5.5 0 .3-.2 1.3-.9 1.8-.5.4-1.2.5-2 .4-1.2-.2-2.7-.8-4.4-2.3-1.7-1.5-2.7-3.3-3.1-4.5-.3-.9-.2-1.6.1-2Z" fill="currentColor" />
+      </svg>
+    ),
     globe: (
       <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
@@ -102,6 +108,10 @@ function Icon({ type, className = "" }) {
 }
 
 export default function PortalEvdeSaglikWebsite() {
+  const phoneNumber = "0546 258 23 03";
+  const phoneHref = "tel:05462582303";
+  const whatsappLink = "https://wa.me/905462582303?text=Merhaba%2C%20Portal%20Evde%20Sa%C4%9Fl%C4%B1k%20hizmetleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.";
+
   const services = [
     { icon: "bag", title: "Serum Takma ve Takibi", text: "Ev konforunda kontrollü serum uygulaması ve süreç takibi." },
     { icon: "syringe", title: "Enjeksiyon ve Pansuman", text: "İğne, pansuman ve temel bakım işlemlerinde profesyonel destek." },
@@ -126,6 +136,8 @@ export default function PortalEvdeSaglikWebsite() {
   console.assert(services.length === 5, "Hizmet sayısı 5 olmalı");
   console.assert(features.length === 3, "Öne çıkan özellik sayısı 3 olmalı");
   console.assert(checks.includes("7/24 ulaşılabilir iletişim"), "7/24 iletişim maddesi bulunmalı");
+  console.assert(phoneHref === "tel:05462582303", "Telefon linki 0546 258 23 03 numarasına gitmeli");
+  console.assert(whatsappLink.includes("905462582303"), "WhatsApp linki Türkiye ülke koduyla doğru numaraya gitmeli");
   console.assert(typeof Icon === "function", "Icon component tanımlı olmalı");
 
   return (
@@ -174,9 +186,13 @@ export default function PortalEvdeSaglikWebsite() {
             </div>
 
             <div className="space-y-4 text-lg">
-              <a href="tel:05462582303" className="flex items-center gap-4 rounded-2xl bg-[#061747] p-4 font-black tracking-wider text-white transition hover:bg-[#007f86]">
+              <a href={phoneHref} className="flex items-center gap-4 rounded-2xl bg-[#061747] p-4 font-black tracking-wider text-white transition hover:bg-[#007f86]">
                 <Icon type="phone" className="h-6 w-6" />
-                0546 258 23 03
+                {phoneNumber}
+              </a>
+              <a href={whatsappLink} target="_blank" rel="noreferrer" className="flex items-center gap-4 rounded-2xl bg-[#1fbf75] p-4 font-black tracking-wide text-white transition hover:bg-[#15975c]">
+                <Icon type="whatsapp" className="h-6 w-6" />
+                WhatsApp ile İletişime Geç
               </a>
               <div className="flex items-center gap-4 px-2 text-slate-700">
                 <Icon type="globe" className="h-6 w-6 text-[#007f86]" />
@@ -253,10 +269,16 @@ export default function PortalEvdeSaglikWebsite() {
               <h2 className="mb-4 text-3xl font-black md:text-5xl">Sağlığınız bizim önceliğimiz, güveniniz en büyük motivasyonumuz.</h2>
               <p className="text-lg text-slate-100">İhtiyacınız olduğunda bize ulaşın, uygun sağlık hizmeti için yönlendirme sağlayalım.</p>
             </div>
-            <a href="tel:05462583003" className="flex items-center justify-center gap-3 rounded-2xl bg-white px-6 py-5 text-xl font-black text-[#061747] shadow-lg transition hover:scale-[1.02]">
-              <Icon type="phone" className="h-6 w-6 text-[#007f86]" />
-              Hemen Ara
-            </a>
+            <div className="flex flex-col gap-3">
+              <a href={phoneHref} className="flex items-center justify-center gap-3 rounded-2xl bg-white px-6 py-5 text-xl font-black text-[#061747] shadow-lg transition hover:scale-[1.02]">
+                <Icon type="phone" className="h-6 w-6 text-[#007f86]" />
+                Hemen Ara
+              </a>
+              <a href={whatsappLink} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 rounded-2xl bg-[#1fbf75] px-6 py-5 text-xl font-black text-white shadow-lg transition hover:scale-[1.02] hover:bg-[#15975c]">
+                <Icon type="whatsapp" className="h-6 w-6" />
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>
