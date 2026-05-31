@@ -174,9 +174,9 @@ export default function PortalEvdeSaglikWebsite() {
             </div>
 
             <div className="space-y-4 text-lg">
-              <a href="tel:05462583003" className="flex items-center gap-4 rounded-2xl bg-[#061747] p-4 font-black tracking-wider text-white transition hover:bg-[#007f86]">
+              <a href="tel:05462582303" className="flex items-center gap-4 rounded-2xl bg-[#061747] p-4 font-black tracking-wider text-white transition hover:bg-[#007f86]">
                 <Icon type="phone" className="h-6 w-6" />
-                0546 258 30 03
+                0546 258 23 03
               </a>
               <div className="flex items-center gap-4 px-2 text-slate-700">
                 <Icon type="globe" className="h-6 w-6 text-[#007f86]" />
